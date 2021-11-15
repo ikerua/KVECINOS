@@ -82,7 +82,7 @@ void introEnMatriz(matriz m, FILE * dat){
         for(j = 0; j<COLUMNA-1; j++){
            m[i][j] = leerDato(data); 
         }
-        m[i][COLUMNA-1]=(float) sacarClase(data);
+        m[i][COLUMNA-1]=(float)sacarClase(data);
         i++;
     }   
 }
@@ -143,7 +143,7 @@ int sacarClase(FILE * dat){
         else if(aux=='o')
             x=9;
     }
-    while(aux!='\n')
+    while(aux!=';' && !feof(f))
         aux=fgetc(f);
     
     return x;

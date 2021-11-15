@@ -34,4 +34,4 @@ typedef struct pista{
  * SALIDA:En la variable tipo Pista queda almacenada la pista i del fichero f
  * DESCRIPCION: 
  */
-void leerPista(matriz ,Pista);
+void leerPista(matriz ,Pista, int);
