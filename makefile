@@ -1,22 +1,22 @@
-all: version1 pista listaPista normalizacion distancia listaOrdenadaDistancias algoritmok
+all: pista normalizacion distancia listaPista listaOrdenadaDistancias algoritmok version1
 
-version1.0:  version1
+version1:  version1.c *.o
 	gcc -g -o version1 version1.c *.o
 
 pista: pista.c
-	gcc -g -c pista.c -Wall
-
-listaPista:  listaPista.c 
-	gcc -g -c listaPista.c -Wall
+	gcc -g -c -Wall pista.c 
 
 normalizacion:	normalizacion.c 
-	gcc -g -c normalizacion.c -Wall
+	gcc -g -c -Wall normalizacion.c 
 
-distancia:	distancia.c
-	gcc -g -c distancia.c pista.o -Wall
+distancia:	distancia.c pista.o
+	gcc -g -c -Wall -lm distancia.c pista.o 
 
-listaOrdenadaDistancias:	listaOrdenadaDistancias
-	gcc -g -c listaOrdenadaDistancias.c -Wall
+listaPista:  listaPista.c distancia.o
+	gcc -g -c -Wall listaPista.c distancia.o
 
-algoritmok:		algoritmok
-	gcc -g -c algoritmok.c -Wall
+listaOrdenadaDistancias:	listaOrdenadaDistancias.c listaPista.o
+	gcc -g -c -Wall listaOrdenadaDistancias.c listaPista.o
+
+algoritmok:		algoritmok.c listaOrdenadaDistancias.o 
+	gcc -g -c -Wall algoritmok.c listaOrdenadaDistancias.o 

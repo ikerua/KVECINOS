@@ -1,41 +1,33 @@
 /*
   FICHERO: listaOrdenadaDistancias.h
   VERSION: 1.0.0
-  HISTORICO:
-  Creado por Aránzazu Jurío Munárriz el 09/09/19.
-  
-  Este fichero se crea sólo con intenciones de coordinación docente y como
-  ayuda a sus alumnos y alumnas. La autora desautoriza expresamente su difusión, copia
-  o exhibición pública (salvo entre los alumnos de las asignaturas 240301 y 250301 del
-  grado en Ingeniería Informática de la UPNA).
 */
 
 #include <stdbool.h>
-#include "distancias.h"
+#include "listaPista.h"
 
- typedef Distancia tipoElementoLista;
- typedef struct celdaL{
-	 tipoElementoLista elem;
-	 struct celdaL *sig;
-	 struct celdaL *ant;
- }celdaListaOrdenada; 
-typedef struct tipoL{
-	celdaListaOrdenada *ini;
-	celdaListaOrdenada *fin;
+ typedef struct celdaListaOrdenada{
+	 Distancia elem;
+	 struct celdaListaOrdenada *sig;
+	 struct celdaListaOrdenada *ant;
+ }CeldaListaOrdenada; 
+typedef struct tipoListaOrdenada{
+	CeldaListaOrdenada *ini;
+	CeldaListaOrdenada *fin;
 }tipoListaOrdenadaDistancias;
 
-void nuevaListaOrdenada(tipoListaOrdenada *);
+void nuevaListaOrdenada(tipoListaOrdenadaDistancias *);
 
-void insertarListaOrdenada(tipoListaOrdenada *, tipoElementoLista);
+void insertarListaOrdenada(tipoListaOrdenadaDistancias *, Distancia);
 
-void eliminarMenorListaOrdenada(tipoListaOrdenada *);
+void eliminarMenorListaOrdenada(tipoListaOrdenadaDistancias *);
 
-void eliminarMayorListaOrdenada(tipoListaOrdenada *);
+void eliminarMayorListaOrdenada(tipoListaOrdenadaDistancias *);
 
-tipoElementoLista consultarMenorListaOrdenada(tipoListaOrdenada);
+Distancia consultarMenorListaOrdenada(tipoListaOrdenadaDistancias);
 
-tipoElementoLista consultarMayorListaOrdenada(tipoListaOrdenada);
+Distancia consultarMayorListaOrdenada(tipoListaOrdenadaDistancias);
 
-bool estaElementoListaOrdenada(tipoListaOrdenada, tipoElementoLista);
+bool estaElementoListaOrdenada(tipoListaOrdenadaDistancias, Distancia);
 
-bool esNulaListaListaOrdenada(tipoListaOrdenada);
+bool esNulaListaOrdenada(tipoListaOrdenadaDistancias);

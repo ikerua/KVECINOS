@@ -30,12 +30,12 @@ void nuevaLista(tipoLista * l){
  * SALIDA: La lista con el elemento introducido en el
  * DESCRIPCION: El elemento se insertara de manera ordenada en la lista
  */
-void insertar(tipoLista * l, tipoElementoLista elem){
+void insertar(tipoLista * l, Pista elem){
     celdaLista * q;
     if((q=malloc(sizeof(celdaLista)))==NULL){
         perror("No hay memoria para insertar");
     }
-    q->elem = elem;
+    q->pista = elem;
     q->ant = NULL;
     q->sig = NULL;
     if(esNulaLista(*l)){
@@ -56,8 +56,8 @@ void insertar(tipoLista * l, tipoElementoLista elem){
  * DESCRIPCION: Será necesaria en el algoritmo de wilson para eliminar outliers
  */
 void eliminaPista(tipoLista * l, celdaLista * pista){
-    if(esNulaLista(l))
-        perror("ELIMINANDO EN UNA LISTA VACÍA")
+    if(esNulaLista(*l))
+        perror("ELIMINANDO EN UNA LISTA VACÍA");
     if(l->ini == pista){
         l->ini = pista->sig;
         l->ini->ant = NULL;

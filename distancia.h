@@ -17,14 +17,7 @@ typedef struct distancia{
      int clase;
  }Distancia; 
  
- /*
- * Funcion : Sacar distancias
- * ENTRADAS: Una lista de pistas y una pista 
- *  REQUISITOS: Ninguno
- * SALIDA:Una lista ordenada de las distancias
- * DESCRIPCION: 
- */
-tipoListaOrdenadaDistancias sacarDistancias(tipoLista listaPistas,Pista nueva);
+ 
 
 /*
  * ACCION : calcular distancia
@@ -33,7 +26,7 @@ tipoListaOrdenadaDistancias sacarDistancias(tipoLista listaPistas,Pista nueva);
  * SALIDA:En la variable tipo distancia queda almacenada la distancia entre las dos pistas 
  * DESCRIPCION: 
  */
-void calcularDistancia(Pista ,Pista ,Distancia);
+Distancia calcularDistancia(Pista ,Pista);
 
 
 

@@ -31,31 +31,31 @@ void nuevaListaOrdenada(tipoListaOrdenadaDistancias * l){
  * SALIDA: La lista con el elemento introducido en el
  * DESCRIPCION: El elemento se insertara de manera ordenada en la lista
  */
-void insertarListaOrdenada(tipoListaOrdenadaDistancias * l, tipoElementoLista elem){
-    celdaListaOrdenada * q, * aux;
-    if((q=malloc(sizeof(celdaLista)))==NULL){
+void insertarListaOrdenada(tipoListaOrdenadaDistancias * l, Distancia elem){
+    CeldaListaOrdenada * q, * aux;
+    if((q=malloc(sizeof(CeldaListaOrdenada)))==NULL){
         perror("No hay memoria para insertar");
     }
     q->elem = elem;
     q->ant = NULL;
     q->sig = NULL;
-    if(esNulaLista(*l)){
+    if(esNulaListaOrdenada(*l)){
         l->ini = q;
         l->fin = q;
     }
-    else if(q->elem <= l->ini->elem){
+    else if(q->elem.dist <= l->ini->elem.dist){
         l->ini->ant = q;
         q->sig=l->ini;
         l->ini = q;
     }
-    else if(q->elem >= l->fin->elem){
+    else if(q->elem.dist >= l->fin->elem.dist){
         l->fin->sig =q;
         q->ant = l->fin;
         l->fin = q;
     }
     else{
         aux = l->ini;
-        while ((aux->sig != NULL)&&(aux->elem< q->elem))
+        while ((aux->sig != NULL)&&(aux->elem.dist< q->elem.dist))
         {
             aux = aux->sig;
         }
@@ -74,7 +74,7 @@ void insertarListaOrdenada(tipoListaOrdenadaDistancias * l, tipoElementoLista el
  * SALIDA: La lista sin el elemento menor
  */
 void eliminarMenorListaOrdenada(tipoListaOrdenadaDistancias * l){
-    if(esNulaLista(*l)){
+    if(esNulaListaOrdenada(*l)){
         perror("Eliminando elemento en una lista vacía \n\n");
     }
     l->ini = l->ini->sig;
@@ -89,7 +89,7 @@ void eliminarMenorListaOrdenada(tipoListaOrdenadaDistancias * l){
  * SALIDA: La lista sin el elemento mayor
  */
 void eliminarMayorListaOrdenada(tipoListaOrdenadaDistancias * l){
-    if(esNulaLista(*l)){
+    if(esNulaListaOrdenada(*l)){
         perror("Eliminando elemento en una lista vacía \n\n");
     }
     l->fin = l->fin->ant;
@@ -103,8 +103,8 @@ void eliminarMayorListaOrdenada(tipoListaOrdenadaDistancias * l){
  *  REQUISITOS:la lista debe estar incializada y no debe ser vacía
  * SALIDA: el elemento menor
  */
-tipoElementoLista consultarMenorListaOrdenada(tipoListaOrdenadaDistancias l){
-    if(esNulaLista(l)){
+Distancia consultarMenorListaOrdenada(tipoListaOrdenadaDistancias l){
+    if(esNulaListaOrdenada(l)){
         perror("Consultando elemento en lista vacía\n\n");
     }
     return(l.ini->elem);
@@ -115,8 +115,8 @@ tipoElementoLista consultarMenorListaOrdenada(tipoListaOrdenadaDistancias l){
  *  REQUISITOS:la lista debe estar incializada y no debe ser vacía
  * SALIDA: el elemento mayor
  */
-tipoElementoLista consultarMayorListaOrdenada(tipoListaOrdenadaDistancias l){
-    if(esNulaLista(l)){
+Distancia consultarMayorListaOrdenada(tipoListaOrdenadaDistancias l){
+    if(esNulaListaOrdenada(l)){
         perror("Consultando elemento en lista vacía\n\n");
     }
     return(l.fin->elem);
@@ -128,14 +128,13 @@ tipoElementoLista consultarMayorListaOrdenada(tipoListaOrdenadaDistancias l){
  *  REQUISITOS:la lista debe estar incializada y no debe ser vacía
  * SALIDA: un booleano indicando si el elemento deseado se encuentra en la lista
  */
-bool estaElementoListaOrdenada(tipoListaOrdenadaDistancias l, tipoElementoLista elem){
-    celdaListaOrdenada * aux; 
+bool estaElementoListaOrdenada(tipoListaOrdenadaDistancias l, Distancia elem){
+    CeldaListaOrdenada * aux; 
     aux = l.ini;
-    while((aux!=NULL)&&(aux->elem<elem)){
+    while((aux!=NULL)&&(aux->elem.dist<elem.dist)){
         aux = aux->sig;
     }
-    return(aux->elem==elem);
-    
+    return(aux->elem.dist==elem.dist);  
 }
 /**
  * FUNCION: esNulaLista

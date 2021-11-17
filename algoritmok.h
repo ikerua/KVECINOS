@@ -12,7 +12,7 @@
 //HEADERS NECESARIOS
 #include <stdio.h>
 #include "listaOrdenadaDistancias.h"
-#include "pista.h"
+#include "listaPista.h"
 
 //FUNCIONES EXPORTADAS
 /**
@@ -24,3 +24,12 @@
  * 
  */
 void sacarClase(tipoListaOrdenadaDistancias ,Pista, int);
+
+/*
+ * Funcion : Sacar distancias
+ * ENTRADAS: Una lista de pistas y una pista 
+ *  REQUISITOS: Ninguno
+ * SALIDA:Una lista ordenada de las distancias
+ * DESCRIPCION: 
+ */
+tipoListaOrdenadaDistancias sacarDistancias(tipoLista listaPistas,Pista nueva);

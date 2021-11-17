@@ -3,10 +3,6 @@
   VERSION: 1.0
   Fecha 10/11/21
 */
-#include "listaPista.h"
-#include "pista.h"
-#include "normalizacion.h"
-#include "distancia.h"
 #include "listaOrdenadaDistancias.h"
 #include <stdio.h>
 #include <stdlib.h>
