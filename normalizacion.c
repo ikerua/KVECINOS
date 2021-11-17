@@ -10,11 +10,11 @@
 //HEADERS NECESARIOS
 #include "normalizacion.h"
 /**
- * @brief 
- * 
- * @param m 
- * @param columna 
- * @return float 
+ * FUNCION:
+ * ENTRADA:
+ *  REQUISITOS:
+ * SALIDA: Un float 
+ * DESCRICPCION:
  */
 float minimo(matriz m,int columna){
     float min=m[0][columna];

@@ -16,7 +16,7 @@
 
  typedef Pista tipoElementoLista;
  typedef struct celdaL{
-	 tipoElementoLista elem;
+	 tipoElementoLista pista;
 	 struct celdaL *sig;
 	 struct celdaL *ant;
  }celdaLista; 

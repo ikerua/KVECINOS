@@ -10,15 +10,31 @@
 
 //HEADERS NECESARIOS 
 #include "distancia.h"
+#include "listaOrdenadaDistancias.h"
+#include "listaPista.h"
 #include <stdio.h>
 #include <math.h>
-/*//DEFINICION DE DISTANCIA
-typedef struct distancia{
-     float dist;
-     int clase;
- }Distancia; 
+
+//IMPLEMENTACION DE FUNCIONES/ACCIONES EXPORTADAS
+/*
+ * Funcion : Sacar distancias
+ * ENTRADAS: Una lista de pistas y una pista 
+ *  REQUISITOS: Ninguno
+ * SALIDA:Una lista ordenada de las distancias
+ * DESCRIPCION: 
  */
- 
+tipoListaOrdenadaDistancias sacarDistancias(tipoLista listaPistas,Pista nueva){
+    celdaLista *p=listaPistas->ini;
+    tipoListaOrdenadaDistancias listaDistancias;
+    Distancia d;
+    nuevaListaOrdenada(&listaDistancias);
+    while(p!=NULL){
+        calcularDistancia(nueva,p->pista,d);
+        insertarListaOrdenada(&listaDistancias,d);
+        p=p->sig;
+    }
+    return listaDistancias;
+}
 /*
  * ACCION : calcular distancia
  * ENTRADAS: Dos pistas 
@@ -27,9 +43,11 @@ typedef struct distancia{
  * DESCRIPCION: 
  */
 void calcularDistancia(Pista nueva,Pista x,Distancia d){
-    d.dist=0;
+    float aux=0;
     for(int i=0;i<len(nueva.datos);i++){
-        d.dist+=sqrt(pow(nueva.datos[i],2)+pow(x.datos[i],2));
+        aux+=pow(nueva.datos[i]-x.datos[i],2);
     }
+    d.dist=sqrt(aux);
     d.clase=x.clase;
 }
+

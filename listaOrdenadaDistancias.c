@@ -19,7 +19,7 @@
  *  REQUISITOS: No debe estar inicializada
  * SALIDA: La lista inicializada
  */
-void nuevaListaOrdenada(tipoListaOrdenada * l){
+void nuevaListaOrdenada(tipoListaOrdenadaDistancias * l){
     l->ini = NULL;
     l->fin = NULL;
 }
@@ -31,8 +31,8 @@ void nuevaListaOrdenada(tipoListaOrdenada * l){
  * SALIDA: La lista con el elemento introducido en el
  * DESCRIPCION: El elemento se insertara de manera ordenada en la lista
  */
-void insertarListaOrdenada(tipoListaOrdenada * l, tipoElementoLista elem){
-    celdaLista * q, * aux;
+void insertarListaOrdenada(tipoListaOrdenadaDistancias * l, tipoElementoLista elem){
+    celdaListaOrdenada * q, * aux;
     if((q=malloc(sizeof(celdaLista)))==NULL){
         perror("No hay memoria para insertar");
     }
@@ -73,7 +73,7 @@ void insertarListaOrdenada(tipoListaOrdenada * l, tipoElementoLista elem){
  *  REQUISITOS: Debe estar inicializada y no debe ser vacía
  * SALIDA: La lista sin el elemento menor
  */
-void eliminarMenorListaOrdenada(tipoListaOrdenada * l){
+void eliminarMenorListaOrdenada(tipoListaOrdenadaDistancias * l){
     if(esNulaLista(*l)){
         perror("Eliminando elemento en una lista vacía \n\n");
     }
@@ -88,7 +88,7 @@ void eliminarMenorListaOrdenada(tipoListaOrdenada * l){
  *  REQUISITOS: debe estar inicializada y no debe ser vacía
  * SALIDA: La lista sin el elemento mayor
  */
-void eliminarMayorListaOrdenada(tipoListaOrdenada * l){
+void eliminarMayorListaOrdenada(tipoListaOrdenadaDistancias * l){
     if(esNulaLista(*l)){
         perror("Eliminando elemento en una lista vacía \n\n");
     }
@@ -103,7 +103,7 @@ void eliminarMayorListaOrdenada(tipoListaOrdenada * l){
  *  REQUISITOS:la lista debe estar incializada y no debe ser vacía
  * SALIDA: el elemento menor
  */
-tipoElementoLista consultarMenorListaOrdenada(tipoListaOrdenada l){
+tipoElementoLista consultarMenorListaOrdenada(tipoListaOrdenadaDistancias l){
     if(esNulaLista(l)){
         perror("Consultando elemento en lista vacía\n\n");
     }
@@ -115,7 +115,7 @@ tipoElementoLista consultarMenorListaOrdenada(tipoListaOrdenada l){
  *  REQUISITOS:la lista debe estar incializada y no debe ser vacía
  * SALIDA: el elemento mayor
  */
-tipoElementoLista consultarMayorListaOrdenada(tipoListaOrdenada l){
+tipoElementoLista consultarMayorListaOrdenada(tipoListaOrdenadaDistancias l){
     if(esNulaLista(l)){
         perror("Consultando elemento en lista vacía\n\n");
     }
@@ -128,8 +128,8 @@ tipoElementoLista consultarMayorListaOrdenada(tipoListaOrdenada l){
  *  REQUISITOS:la lista debe estar incializada y no debe ser vacía
  * SALIDA: un booleano indicando si el elemento deseado se encuentra en la lista
  */
-bool estaElementoListaOrdenada(tipoListaOrdenada l, tipoElementoLista elem){
-    celdaLista * aux; 
+bool estaElementoListaOrdenada(tipoListaOrdenadaDistancias l, tipoElementoLista elem){
+    celdaListaOrdenada * aux; 
     aux = l.ini;
     while((aux!=NULL)&&(aux->elem<elem)){
         aux = aux->sig;
@@ -143,7 +143,7 @@ bool estaElementoListaOrdenada(tipoListaOrdenada l, tipoElementoLista elem){
  *  REQUISITOS:la lista debe estar incializada 
  * SALIDA: un booleano que indica si la lista esta vacía o no
  */
-bool esNulaListaOrdenada(tipoListaOrdenada l){
+bool esNulaListaOrdenada(tipoListaOrdenadaDistancias l){
     return (l.ini ==NULL);
 }
 

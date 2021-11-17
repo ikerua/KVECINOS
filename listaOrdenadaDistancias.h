@@ -18,11 +18,11 @@
 	 tipoElementoLista elem;
 	 struct celdaL *sig;
 	 struct celdaL *ant;
- }celdaLista; 
+ }celdaListaOrdenada; 
 typedef struct tipoL{
-	celdaLista *ini;
-	celdaLista *fin;
-}tipoListaOrdenada;
+	celdaListaOrdenada *ini;
+	celdaListaOrdenada *fin;
+}tipoListaOrdenadaDistancias;
 
 void nuevaListaOrdenada(tipoListaOrdenada *);
 

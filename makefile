@@ -1,4 +1,7 @@
-all: pista listaPista normalizacion distancia listaOrdenadaDistancias
+all: version1 pista listaPista normalizacion distancia listaOrdenadaDistancias algoritmok
+
+version1.0:  version1
+	gcc -g -o version1 version1.c *.o
 
 pista: pista.c
 	gcc -g -c pista.c -Wall
@@ -14,3 +17,6 @@ distancia:	distancia.c
 
 listaOrdenadaDistancias:	listaOrdenadaDistancias
 	gcc -g -c listaOrdenadaDistancias.c -Wall
+
+algoritmok:		algoritmok
+	gcc -g -c algoritmok.c -Wall
