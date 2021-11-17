@@ -18,7 +18,7 @@ void sacarClase(tipoListaOrdenadaDistancias lista ,Pista p, int k){
     int tablaClases[NUMCLASES];
     for (int j=0;j<NUMCLASES;j++)
         tablaClases[j]=0;
-    celdaListaOrdenada *aux= lista.ini;   
+    CeldaListaOrdenada *aux= lista.ini;   
     for(int i =0; i<k;i++){
         if(aux->sig == NULL){
             perror("ERROR FUNCION SACAR CLASE");
@@ -39,7 +39,6 @@ tipoListaOrdenadaDistancias sacarDistancias(tipoLista listaPistas,Pista nueva){
     celdaLista * p=listaPistas.ini;
     Distancia d;
     tipoListaOrdenadaDistancias listaDistancias;
-    Distancia d;
     nuevaListaOrdenada(&listaDistancias);
     while(p!=NULL){
         d=calcularDistancia(nueva,p->pista);

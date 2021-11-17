@@ -6,17 +6,17 @@ version1:  version1.c *.o
 pista: pista.c
 	gcc -g -c -Wall pista.c 
 
+listaPista:  listaPista.c 
+	gcc -g -c -Wall listaPista.c 
+
 normalizacion:	normalizacion.c 
 	gcc -g -c -Wall normalizacion.c 
 
-distancia:	distancia.c pista.o
-	gcc -g -c -Wall -lm distancia.c pista.o 
+distancia:	distancia.c 
+	gcc -g -c -Wall -lm distancia.c 
 
-listaPista:  listaPista.c distancia.o
-	gcc -g -c -Wall listaPista.c distancia.o
+listaOrdenadaDistancias:	listaOrdenadaDistancias.c 
+	gcc -g -c -Wall listaOrdenadaDistancias.c 
 
-listaOrdenadaDistancias:	listaOrdenadaDistancias.c listaPista.o
-	gcc -g -c -Wall listaOrdenadaDistancias.c listaPista.o
-
-algoritmok:		algoritmok.c listaOrdenadaDistancias.o 
-	gcc -g -c -Wall algoritmok.c listaOrdenadaDistancias.o 
+algoritmok:		algoritmok.c 
+	gcc -g -c -Wall algoritmok.c 

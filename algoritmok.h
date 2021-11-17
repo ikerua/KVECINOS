@@ -1,4 +1,5 @@
-
+#ifndef ALGORITMO_K_H
+#define ALGORTIMO_K_H
 /**
  * @file algoritmok.h
  * DESCRICPION:
@@ -33,3 +34,4 @@ void sacarClase(tipoListaOrdenadaDistancias ,Pista, int);
  * DESCRIPCION: 
  */
 tipoListaOrdenadaDistancias sacarDistancias(tipoLista listaPistas,Pista nueva);
+#endif

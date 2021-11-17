@@ -1,3 +1,5 @@
+#ifndef LISTA_PISTA_H
+#define LISTA_PISTA_H
 /*
   FICHERO: listaPista.h
   VERSION: 1.0.0
@@ -5,7 +7,7 @@
 
 //HEADERS NECESARIOS 
 #include <stdbool.h>
-#include "distancia.h"
+#include "pista.h"
 
  typedef struct celdaL{
 	 Pista pista;
@@ -25,3 +27,4 @@ void eliminaPista(tipoLista *, celdaLista *);
 
 bool esNulaLista(tipoLista);
 
+#endif

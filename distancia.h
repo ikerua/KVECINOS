@@ -1,3 +1,5 @@
+#ifndef DISTANCIA_H
+#define DISTANCIA_H
 /**
  * @file distancia.h
  * @brief 
@@ -28,5 +30,5 @@ typedef struct distancia{
  */
 Distancia calcularDistancia(Pista ,Pista);
 
-
+#endif
 

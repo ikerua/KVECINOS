@@ -1,3 +1,5 @@
+#ifndef NORMALIZACION_H
+#define NORMALIZACION_H
 /*
  * 
  */
@@ -22,3 +24,5 @@ float obtnormalizado(float valor, float maximo, float minimo);
 void normalizarMatriz(matriz m);
 
 void introEnMatriz(matriz m, FILE *);
+
+#endif

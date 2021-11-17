@@ -1,10 +1,12 @@
+#ifndef LISTA_ORDENADA_DISTANCIAS_H
+#define LISTA_ORDENADA_DISTANCIAS_H
 /*
   FICHERO: listaOrdenadaDistancias.h
   VERSION: 1.0.0
 */
 
 #include <stdbool.h>
-#include "listaPista.h"
+#include "distancia.h"
 
  typedef struct celdaListaOrdenada{
 	 Distancia elem;
@@ -31,3 +33,5 @@ Distancia consultarMayorListaOrdenada(tipoListaOrdenadaDistancias);
 bool estaElementoListaOrdenada(tipoListaOrdenadaDistancias, Distancia);
 
 bool esNulaListaOrdenada(tipoListaOrdenadaDistancias);
+
+#endif

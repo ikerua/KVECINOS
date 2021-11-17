@@ -1,3 +1,5 @@
+#ifndef PISTA_H
+#define PISTA_H
 /*
  * FICHERO: pista.h
  * VERSION: 1.0.0
@@ -35,3 +37,5 @@ typedef struct pista{
  * DESCRIPCION: 
  */
 void leerPista(matriz ,Pista, int);
+
+#endif
