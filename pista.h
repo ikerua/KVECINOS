@@ -15,12 +15,9 @@
 //HEADERS NECESARIOS
 #include <stdio.h>
 #include <stdlib.h>
+#include "matriz.h"
 //DEFINICION DE COSNTANTE
 #define NUMDATOS 28
-#define FILA 1000
-#define COLUMNA 29
-//DEFINICION DE MATRIZ
-typedef float matriz[FILA][COLUMNA];
 
 //DEFINICION DE PISTA
 typedef struct pista{
@@ -36,6 +33,6 @@ typedef struct pista{
  * SALIDA:En la variable tipo Pista queda almacenada la pista i del fichero f
  * DESCRIPCION: 
  */
-void leerPista(matriz ,Pista, int);
+Pista leerPista(matriz ,int);
 
 #endif

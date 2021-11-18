@@ -17,9 +17,11 @@
  * SALIDA:En la variable tipo Pista queda almacenada la pista i del fichero f
  * DESCRIPCION: 
  */
-void leerPista(matriz m,Pista p, int fila){
+Pista leerPista(matriz m,int fila){
+    Pista p;
     for(int i=0;i<28;i++){
         p.datos[i]=m[fila][i];
     }
     p.clase=m[fila][COLUMNA-1];
+    return p;
 }

@@ -9,6 +9,9 @@
  */
 //HEADERS NECESARIOS
 #include "normalizacion.h"
+#include <math.h>
+#include <stdbool.h>
+#include <string.h>
 //FUNCIONES NECESARIAS PERO NO EXPORTADAS
 /**
  * @brief 
@@ -17,17 +20,32 @@
  * @return float 
  */
 float leerDato(FILE *dat){
-    float x=0;
+    double parteEntera=0,parteDecimal=0,x=0;
+    bool entero = true, negativo =false;
     char aux=fgetc(dat);
     int numDigitos=0;
-    while(aux!=';'){
-        if(aux!=','){
-            x=10*x+atoi(&aux);
-            numDigitos++;
-        }
+    if(aux=='-'){
+        negativo=true;
         aux=fgetc(dat);
     }
-    x=x/numDigitos;
+    //LEEMOS EL STRING Y LO CONVERTIMOS EN REAL.
+    while(aux!=';'){
+        if(aux == ','){
+            entero = false;
+            aux=fgetc(dat);
+        }
+        if(entero){
+            parteEntera = 10*parteEntera+atoi(&aux);
+        }else{
+            numDigitos++;
+            parteDecimal = parteDecimal+atoi(&aux)/(pow(10,numDigitos));
+        }
+        aux=fgetc(dat);  
+    } 
+    x =(parteEntera+parteDecimal);
+    if(negativo)
+        x *=-1;
+    //printf("%f ",x);
     return x;
 }
 
@@ -79,11 +97,11 @@ int sacarClase(FILE * dat){
  * SALIDA: Un float 
  * DESCRICPCION:
  */
-float minimo(matriz m,int columna){
-    float min=m[0][columna];
-    for(int i=1;i<COLUMNA;i++){
-        if(min>m[i][columna])
-            min=m[i][columna];
+float minimo(matriz m,int x){
+    float min=m[0][x];
+    for(int i=1;i<FILA;i++){
+        if(min>m[i][x])
+            min=m[i][x];
     }
     return min;
 }
@@ -95,11 +113,11 @@ float minimo(matriz m,int columna){
  * SALIDA: Un float 
  * DESCRICPCION:
  */
-float maximo(matriz m,int columna){
-    float max=m[0][columna];
-    for(int i=1;i<COLUMNA;i++){
-        if(max<m[i][columna])
-            max=m[i][columna];
+float maximo(matriz m,int x){
+    float max=m[0][x];
+    for(int i=1;i<FILA;i++){
+        if(max<m[i][x])
+            max=m[i][x];
     }
     return max;
 }
@@ -138,12 +156,10 @@ void normalizarMatriz(matriz m){
  * @param dat 
  */
 void introEnMatriz(matriz m, FILE * dat){
-    int i=0;
-    while(!feof(dat)){
+    for(int i=0;i<FILA;i++){
         for(int j = 0; j<COLUMNA-1; j++){
            m[i][j] = leerDato(dat); 
         }
         m[i][COLUMNA-1]=(float)sacarClase(dat);
-        i++;
     }   
 }

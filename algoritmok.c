@@ -14,11 +14,11 @@
 #include "algoritmok.h"
 
 //IMPLEMENTACION DE ACCION EXPORTADA
-void sacarClase(tipoListaOrdenadaDistancias lista ,Pista p, int k){
+void calcularClase(tipoListaOrdenadaDistancias lista ,Pista *p, int k){
     int tablaClases[NUMCLASES];
+    CeldaListaOrdenada *aux= lista.ini; 
     for (int j=0;j<NUMCLASES;j++)
-        tablaClases[j]=0;
-    CeldaListaOrdenada *aux= lista.ini;   
+        tablaClases[j]=0;  
     for(int i =0; i<k;i++){
         if(aux->sig == NULL){
             perror("ERROR FUNCION SACAR CLASE");
@@ -27,6 +27,12 @@ void sacarClase(tipoListaOrdenadaDistancias lista ,Pista p, int k){
         tablaClases[aux->elem.clase]++;
         aux = aux->sig;
     }
+    int posMax=0;
+    for(int i=1;i<NUMCLASES;i++){
+        if(tablaClases[posMax]<tablaClases[i])
+            posMax=i;
+    }
+    p->clase=posMax;
 }
 /*
  * Funcion : Sacar distancias
@@ -40,7 +46,7 @@ tipoListaOrdenadaDistancias sacarDistancias(tipoLista listaPistas,Pista nueva){
     Distancia d;
     tipoListaOrdenadaDistancias listaDistancias;
     nuevaListaOrdenada(&listaDistancias);
-    while(p!=NULL){
+    while(p->sig!=NULL){
         d=calcularDistancia(nueva,p->pista);
         insertarListaOrdenada(&listaDistancias,d);
         p=p->sig;

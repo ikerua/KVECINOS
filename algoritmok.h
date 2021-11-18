@@ -24,7 +24,7 @@
  * DESCRIPCION:
  * 
  */
-void sacarClase(tipoListaOrdenadaDistancias ,Pista, int);
+void calcularClase(tipoListaOrdenadaDistancias ,Pista *, int);
 
 /*
  * Funcion : Sacar distancias
