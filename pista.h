@@ -28,11 +28,19 @@ typedef struct pista{
  
 /*
  * ACCION : leerPista
- * ENTRADAS: Un archivo de texto en formato txt y una variable de tipo Dato
+ * ENTRADAS: Una matriz y una variable tipo Pista
  *  REQUISITOS: Ninguno
- * SALIDA:En la variable tipo Pista queda almacenada la pista i del fichero f
+ * SALIDA:En la variable tipo Pista queda almacenada la pista i de la matriz
  * DESCRIPCION: 
  */
 Pista leerPista(matriz ,int);
 
+/*
+ * ACCION : normalizarPista
+ * ENTRADAS: Una pista y una tabla de maximos y minimos
+ *  REQUISITOS: Ninguno
+ * SALIDA:En la variable tipo Pista queda almacenada la pista normalizada
+ * DESCRIPCION: 
+ */
+void normalizarPista(Pista *p, maxYmin m);
 #endif

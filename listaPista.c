@@ -74,6 +74,19 @@ void eliminaPista(tipoLista * l, celdaLista * pista){
 
 }
 /**
+ * ACCION: eliminar
+ * ENtrada: una lista de pistas
+ * Salida: la primera pista queda eliminada de la lista
+ */
+void eliminar(tipoLista * l){
+    if(esNulaLista(*l)){
+        perror("Eliminando elemento en una lista vacía \n\n");
+    }
+    l->ini = l->ini->sig;
+    free(l->ini->ant);
+    l->ini->ant = NULL;
+}
+/**
  * FUNCION: esNulaLista
  * ENTRADA: una lista
  *  REQUISITOS:la lista debe estar incializada 
@@ -81,4 +94,14 @@ void eliminaPista(tipoLista * l, celdaLista * pista){
  */
 bool esNulaLista(tipoLista l){
     return (l.ini ==NULL);
+}
+/**
+ * ACCION:Vaciar lista
+ * Entrada: Una lista de pistas
+ * SALIDA: La lista queda vaciada
+ * 
+ */
+void vaciarLista(tipoLista *l){
+    while(!esNulaLista(&l))
+        eliminar(&l);
 }

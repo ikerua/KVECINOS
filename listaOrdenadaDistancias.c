@@ -145,5 +145,13 @@ bool estaElementoListaOrdenada(tipoListaOrdenadaDistancias l, Distancia elem){
 bool esNulaListaOrdenada(tipoListaOrdenadaDistancias l){
     return (l.ini ==NULL);
 }
-
-
+/**
+ * ACCION: vaciarListaOrdenada
+ * ENTRADA: una lista
+ *  REQUISITOS:la lista debe estar incializada 
+ * SALIDA: la lista queda vaciada
+ */
+void vaciarListaOrdenada(tipoListaOrdenada *l){
+    while(!esNulaListaOrdenada(&l))
+        eliminarMayorListaOrdenada(&l);
+}

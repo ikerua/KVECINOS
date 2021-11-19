@@ -34,4 +34,5 @@ bool estaElementoListaOrdenada(tipoListaOrdenadaDistancias, Distancia);
 
 bool esNulaListaOrdenada(tipoListaOrdenadaDistancias);
 
+void vaciarListaOrdenada(tipoListaOrdenada *l);
 #endif

@@ -27,4 +27,7 @@ void eliminaPista(tipoLista *, celdaLista *);
 
 bool esNulaLista(tipoLista);
 
+void eliminar(tipoLista *);
+
+void vaciarLista(tipoLista *);
 #endif

@@ -12,9 +12,9 @@
 //DEFINICIOM DE FUNCIONES EXPORTADAS
 /*
  * ACCION : leerPista
- * ENTRADAS: Un archivo de texto en formato txt y una variable de tipo Dato
+ * ENTRADAS: Una matriz y una variable tipo Pista
  *  REQUISITOS: Ninguno
- * SALIDA:En la variable tipo Pista queda almacenada la pista i del fichero f
+ * SALIDA:En la variable tipo Pista queda almacenada la pista i de la matriz
  * DESCRIPCION: 
  */
 Pista leerPista(matriz m,int fila){
@@ -24,4 +24,17 @@ Pista leerPista(matriz m,int fila){
     }
     p.clase=m[fila][COLUMNA-1];
     return p;
+}
+
+/*
+ * ACCION : normalizarPista
+ * ENTRADAS: Una pista y una tabla de maximos y minimos
+ *  REQUISITOS: Ninguno
+ * SALIDA:En la variable tipo Pista queda almacenada la pista normalizada
+ * DESCRIPCION: 
+ */
+void normalizarPista(Pista *p, maxYmin m){
+    for(int i=0;i<COLUMNA-1;i++)
+        p->datos[i]=(p->datos[i]-m[1][i])/(m[0][i]-m[1][i]);
+
 }
