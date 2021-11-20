@@ -1,4 +1,4 @@
-all: matriz pista normalizacion distancia listaPista listaOrdenadaDistancias algoritmok version1 calculoEficiencia
+all: modulos version1 calculoEficiencia
 
 version1:  version1.c *.o
 	gcc -g -o version1 version1.c *.o -lm -Wall
