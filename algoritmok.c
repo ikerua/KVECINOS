@@ -12,8 +12,17 @@
 #define NUMCLASES 10
 //HEADERS NECESARIOS
 #include "algoritmok.h"
+//IMPLEMENTACION DE FUNCION NECESARIA PERO NO EXPORTADA
+bool hayEmpate(int tablaCalses[NUMCLASES]){
+    int numClasesNoCero=0;
+    for(int i=0;i<NUMCLASES;i++){
+        if(tablaCalses[i]!=0)
+            numClasesNoCero++;
+    }
+    return numClasesNoCero>1;
+}
 
-//IMPLEMENTACION DE ACCION EXPORTADA
+//IMPLEMENTACION DE ACCIONES EXPORTADAS
 void calcularClase(tipoListaOrdenadaDistancias lista ,Pista *p, int k){
     int tablaClases[NUMCLASES];
     CeldaListaOrdenada *aux= lista.ini; 
@@ -29,10 +38,15 @@ void calcularClase(tipoListaOrdenadaDistancias lista ,Pista *p, int k){
     }
     int posMax=0;
     for(int i=1;i<NUMCLASES;i++){
-        if(tablaClases[posMax]<tablaClases[i])
+        if(tablaClases[posMax]<tablaClases[i]){
+            tablaClases[posMax]=0;
             posMax=i;
+        }
     }
-    p->clase=posMax;
+    if(hayEmpate(tablaClases))
+        p->clase=lista.ini->elem.clase;
+    else
+        p->clase=posMax;
 }
 /*
  * Funcion : Sacar distancias
