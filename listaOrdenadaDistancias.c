@@ -151,7 +151,7 @@ bool esNulaListaOrdenada(tipoListaOrdenadaDistancias l){
  *  REQUISITOS:la lista debe estar incializada 
  * SALIDA: la lista queda vaciada
  */
-void vaciarListaOrdenada(tipoListaOrdenada *l){
-    while(!esNulaListaOrdenada(&l))
-        eliminarMayorListaOrdenada(&l);
+void vaciarListaOrdenada(tipoListaOrdenadaDistancias *l){
+    while(!esNulaListaOrdenada(*l))
+        eliminarMayorListaOrdenada(l);
 }

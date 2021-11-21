@@ -42,5 +42,5 @@ Pista leerPista(matriz ,int);
  * SALIDA:En la variable tipo Pista queda almacenada la pista normalizada
  * DESCRIPCION: 
  */
-void normalizarPista(Pista *p, maxYmin m);
+void normalizarPista(Pista *,matriz);
 #endif

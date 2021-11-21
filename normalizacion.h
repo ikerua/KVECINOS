@@ -11,7 +11,7 @@
 
 float leerDato(FILE *dat);
 
-int sacarClase(FILE * dat)
+int sacarClase(FILE * dat);
 
 float minimo(matriz m,int fila);
 
@@ -19,7 +19,7 @@ float maximo(matriz m,int fila);
 
 float obtnormalizado(float valor, float maximo, float minimo);
 
-void normalizarMatriz(matriz m, maxYmin n);
+void normalizarMatriz(matriz m);
 
 void introEnMatriz(matriz m, FILE *);
 

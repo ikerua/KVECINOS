@@ -12,8 +12,6 @@
 #define COLUMNA 29
 //DEFINICION DE MATRIZ
 typedef double matriz[FILA][COLUMNA];
-//DEFINICION DEL TIPO MAX Y MIN
-typedef double maxYmin[2][COLUMNA-1];//Posicion 0 maximo, posicion 1 minimo
 //DECLARACION DE FUNCIONES EXPORTADAS
 /**
  * ACCION: imprimeMatriz

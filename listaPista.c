@@ -102,6 +102,6 @@ bool esNulaLista(tipoLista l){
  * 
  */
 void vaciarLista(tipoLista *l){
-    while(!esNulaLista(&l))
-        eliminar(&l);
+    while(!esNulaLista(*l))
+        eliminar(l);
 }

@@ -9,6 +9,7 @@
  */
 //HEADERS NECESARIOS 
 #include "pista.h"
+#include "normalizacion.h"
 //DEFINICIOM DE FUNCIONES EXPORTADAS
 /*
  * ACCION : leerPista
@@ -33,8 +34,8 @@ Pista leerPista(matriz m,int fila){
  * SALIDA:En la variable tipo Pista queda almacenada la pista normalizada
  * DESCRIPCION: 
  */
-void normalizarPista(Pista *p, maxYmin m){
+void normalizarPista(Pista *p, matriz m){
     for(int i=0;i<COLUMNA-1;i++)
-        p->datos[i]=(p->datos[i]-m[1][i])/(m[0][i]-m[1][i]);
+        p->datos[i]=(p->datos[i]-minimo(m,i))/(maximo(m,i)-minimo(m,i));
 
 }

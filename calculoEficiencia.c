@@ -19,20 +19,19 @@ int main(void){
     tipoListaOrdenadaDistancias listaDistancias;
     Pista p,nueva;
     matriz m;
-    maxYmin n;
-    int k,clase,eficiencia;
+    int k,eficiencia;
     FILE *f=fopen("DatosNormalizados.txt","r");   //APERTURA DEL FICHERO DE DATOS
     if(f==NULL)
       perror("Error al abrir el fichero\n");//COMPROBACION DE QUE EL FICHERO SE HA ABIERTO CORRECTAMENTE
     printf("Introduce un valor de k para calcular su eficiencia: ");
-    scanf("%d",k);
+    scanf("%d",&k);
     //INICIALIZACION DE ESTRUCTURAS NECESARIAS
     nuevaLista(&listaPistas);
     nuevaListaOrdenada(&listaDistancias);
     introEnMatriz(m,f);                      //INSERTAR EN LA MATRIZ LA BASE DE DATOS
     fclose(f);
     //imprimeMatriz(m);                         //IMPRIME MATRIZ SIN NORMALIZAR
-    normalizarMatriz(m,n);                     //NORMALIZAMOS MATRIZ
+    normalizarMatriz(m);                     //NORMALIZAMOS MATRIZ
     //imprimeMatriz(m);                        //IMPRIME MATRIZ NORMALIZADA
     
     //CREACION DE LA LISTA DE PISTAS
@@ -40,21 +39,23 @@ int main(void){
         p=leerPista(m,i);
         insertar(&listaPistas,p);
     }
-    f=fopen("DatosNormalizados.txt","r");
+    celdaLista * aux=listaPistas.ini;
     for (int i=0;i<FILA;i++){
-        nueva=leerPista(f);//lEEMOS LA PISTA I DEL FICHERO PARA VER SI SE CALCULA LA CLASE CORRECTAMENTE
-        clase=sacarClase(f);
-        normalizarPista(&nueva,n);//NORMALIZAMOS LA NUEVA PISTA LEIDA
+        /*if(aux==NULL){
+          perror("ERROR EN EFICIENCIA");
+          exit(-1);
+        }*/
+        nueva=aux->pista;
         listaDistancias=sacarDistancias(listaPistas,nueva);
-        listaDistancias=listaDistancias.ini->sig; //AVANZAMOS UNA POSICION EN LA LISTA PARA EVITAR COMPARAR EL DATO CONSIGO MISMO
+        listaDistancias.ini=listaDistancias.ini->sig; //AVANZAMOS UNA POSICION EN LA LISTA PARA EVITAR COMPARAR EL DATO CONSIGO MISMO
         calcularClase(listaDistancias,&nueva,k);//CALCULO DE LA CLASE DE LA PISTA INTRODUCIDA
-        if(clase==nueva.clase)
+        if(aux->pista.clase==nueva.clase)
             eficiencia++;
-        vaciarListaOrdenada(&listaDistancias);
+        //vaciarListaOrdenada(&listaDistancias);
+        aux=aux->sig;
     }
-    printf("La eficiencia del algorimo para k=%d, es del:%d%",k,eficiencia);
-    vaciarLista(&listaPistas);
-    close(f);
+    printf("La eficiencia del algorimo para k=%d, es del:%d \n",k,eficiencia);
+  //vaciarLista(&listaPistas);
     /*introducePista(&nueva); //METEMOS POR TECLADO LA NUEVA PISTA DE LA CUAL QUEREMOS CALCULAR SU CLASE
     normalizarPista(&nuevo,n);
     listaDistancias=sacarDistancias(listaPistas,nueva);//CALCULO DE LAS DISTANCIAS
