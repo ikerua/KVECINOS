@@ -19,7 +19,7 @@ int main(void){
     tipoLista listaPistas;
     tipoListaOrdenadaDistancias listaDistancias;
     Pista p,nueva;
-    matriz m;
+    matriz matrizDatos,matrizNormalizada;
     int k=1;
     FILE *f=fopen("DatosNormalizados.txt","r");   //APERTURA DEL FICHERO DE DATOS
     if(f==NULL)
@@ -27,11 +27,11 @@ int main(void){
     //INICIALIZACION DE ESTRUCTURAS NECESARIAS
     nuevaLista(&listaPistas);
     nuevaListaOrdenada(&listaDistancias);
-    introEnMatriz(m,f);                      //INSERTAR EN LA MATRIZ LA BASE DE DATOS
+    introEnMatriz(matrizDatos,f);                      //INSERTAR EN LA MATRIZ LA BASE DE DATOS
     fclose(f);
-    //imprimeMatriz(m);                         //IMPRIME MATRIZ SIN NORMALIZAR
-    normalizarMatriz(m);                     //NORMALIZAMOS MATRIZ
-    //imprimeMatriz(m);                        //IMPRIME MATRIZ NORMALIZADA
+    //imprimeMatriz(matrizDatos);                         //IMPRIME MATRIZ SIN NORMALIZAR
+    matrizNormalizada=normalizarMatriz(matrizDatos);                     //NORMALIZAMOS MATRIZ
+    //imprimeMatriz(matrizNormalizada);                        //IMPRIME MATRIZ NORMALIZADA
     
     //CREACION DE LA LISTA DE PISTAS
     for(int i=0;i<FILA;i++){
@@ -40,7 +40,7 @@ int main(void){
     }
     
     introducePista(&nueva); //METEMOS POR TECLADO LA NUEVA PISTA DE LA CUAL QUEREMOS CALCULAR SU CLASE
-    normalizarPista(&nueva,m);
+    normalizarPista(&nueva,matrizDatos);
     listaDistancias=sacarDistancias(listaPistas,nueva);//CALCULO DE LAS DISTANCIAS
     calcularClase(listaDistancias,&nueva,k);//CALCULO DE LA CLASE DE LA PISTA INTRODUCIDA
     printf("La clase de la pista introducida es: %d\n",nueva.clase);
