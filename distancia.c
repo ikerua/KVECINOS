@@ -16,13 +16,13 @@
 //IMPLEMENTACION DE FUNCIONES/ACCIONES EXPORTADAS
 
 /*
- * ACCION : calcular distancia Euclidiana
+ * ACCION : calcular distancia
  * ENTRADAS: Dos pistas 
  *  REQUISITOS: Ninguno
- * SALIDA:En la variable tipo distancia queda almacenada la distancia euclidiana entre las dos pistas 
+ * SALIDA:En la variable tipo distancia queda almacenada la distancia entre las dos pistas 
  * DESCRIPCION: 
  */
-Distancia calcularDistanciaEuclidiana(Pista nueva,Pista x){
+Distancia calcularDistancia(Pista nueva,Pista x){
     Distancia d;
     float aux=0;
     for(int i=0;i<NUMDATOS;i++){
@@ -32,21 +32,4 @@ Distancia calcularDistanciaEuclidiana(Pista nueva,Pista x){
     d.clase=x.clase;
     return d;
 }
-/*
- * ACCION : calcular distancia manhattan
- * ENTRADAS: Dos pistas 
- *  REQUISITOS: Ninguno
- * SALIDA:En la variable tipo distancia queda almacenada la distancia manhattan entre las dos pistas 
- * DESCRIPCION: 
- */
-Distancia calcularDistanciaManhattan(Pista nueva,Pista x){
-    Distancia d;
-    float aux=0;
-    for(int i=0;i<NUMDATOS;i++){
-        aux=pow(nueva.datos[i]-x.datos[i],2);
-        aux=sqrt(aux);
-        d.dist+=aux;
-    }
-    d.clase=x.clase;
-    return d;
-}
+

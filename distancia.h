@@ -22,20 +22,13 @@ typedef struct distancia{
  
 
 /*
- * ACCION : calcular distancia Euclidiana
+ * ACCION : calcular distancia
  * ENTRADAS: Dos pistas 
  *  REQUISITOS: Ninguno
- * SALIDA:En la variable tipo distancia queda almacenada la distancia euclidiana entre las dos pistas 
+ * SALIDA:En la variable tipo distancia queda almacenada la distancia entre las dos pistas 
  * DESCRIPCION: 
  */
-Distancia calcularDistanciaEuclidiana(Pista ,Pista);
-/*
- * ACCION : calcular distancia manhattan
- * ENTRADAS: Dos pistas 
- *  REQUISITOS: Ninguno
- * SALIDA:En la variable tipo distancia queda almacenada la distancia manhattan entre las dos pistas 
- * DESCRIPCION: 
- */
-Distancia calcularDistanciaManhattan(Pista nueva,Pista x);
+Distancia calcularDistancia(Pista ,Pista);
+
 #endif
 

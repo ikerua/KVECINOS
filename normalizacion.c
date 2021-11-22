@@ -139,16 +139,14 @@ float obtnormalizado(float valor, float maximo, float minimo){
  * 
  * @param m 
  */
-matriz normalizarMatriz(matriz m){
-    matriz n;
+void normalizarMatriz(matriz m){
     float max,min;
     for(int i=0;i<(COLUMNA-1);i++){
         max=maximo(m,i);
         min=minimo(m,i);
         for(int j=0;j<FILA;j++)
-            n[j][i]=obtnormalizado(m[j][i],max,min);
+            m[j][i]=obtnormalizado(m[j][i],max,min);
     }
-    return n;
 }
 
 /**

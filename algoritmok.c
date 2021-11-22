@@ -61,7 +61,7 @@ tipoListaOrdenadaDistancias sacarDistancias(tipoLista listaPistas,Pista nueva){
     tipoListaOrdenadaDistancias listaDistancias;
     nuevaListaOrdenada(&listaDistancias);
     while(p->sig!=NULL){
-        d=calcularDistanciaEuclidiana(nueva,p->pista);
+        d=calcularDistancia(nueva,p->pista);
         insertarListaOrdenada(&listaDistancias,d);
         p=p->sig;
     }
