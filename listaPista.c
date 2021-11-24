@@ -43,8 +43,10 @@ void insertar(tipoLista * l, Pista elem){
         l->fin = q;
     }
     else {
+        q->ant = l->fin;
         l->fin->sig = q;
-        l->fin = l->fin->sig;
+        l->fin = q;
+
     }
     
 }
@@ -62,8 +64,8 @@ void eliminaPista(tipoLista * l, celdaLista * pista){
         l->ini = pista->sig;
         l->ini->ant = NULL;
     }
-    else if(l->ini == pista){
-        l->fin = pista->ant ;
+    else if(l->fin == pista){
+        l->fin = pista->ant;
         l->fin->sig =NULL;
     }
     else{
@@ -75,8 +77,8 @@ void eliminaPista(tipoLista * l, celdaLista * pista){
 }
 /**
  * ACCION: eliminar
- * ENtrada: una lista de pistas
- * Salida: la primera pista queda eliminada de la lista
+ * ENTRADA: una lista de pistas
+ * SALIDA: la primera pista queda eliminada de la lista
  */
 void eliminar(tipoLista * l){
     if(esNulaLista(*l)){
